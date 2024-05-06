@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{08C876C3-5150-4363-919A-39A0BFD2CA95}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MyPaint</RootNamespace>
+    <AssemblyName>MyPaint</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Entities\Interfaces\ICopy.cs" />
+    <Compile Include="Entities\Interfaces\IListState.cs" />
+    <Compile Include="Entities\States\ListController.cs" />
+    <Compile Include="Entities\States\ListState.cs" />
+    <Compile Include="Entities\Strategies\DiamondStrategy.cs" />
+    <Compile Include="Entities\Strategies\DownArrowStrategy.cs" />
+    <Compile Include="Entities\Decorators\FillDecorator.cs" />
+    <Compile Include="Entities\Factories\FillFactory.cs" />
+    <Compile Include="Entities\Strategies\FullFillStrategy.cs" />
+    <Compile Include="Entities\Strategies\LineStrategy.cs" />
+    <Compile Include="Entities\Strategies\PatternFillStrategy.cs" />
+    <Compile Include="Entities\Enums\FillType.cs" />
+    <Compile Include="Entities\Interfaces\ICalPointStrategy.cs" />
+    <Compile Include="Entities\Interfaces\IDraw.cs" />
+    <Compile Include="Entities\Interfaces\IFillStrategy.cs" />
+    <Compile Include="Entities\Strategies\LeftArrowStrategy.cs" />
+    <Compile Include="Entities\Subjects\MyCircle.cs" />
+    <Compile Include="Entities\Adapters\MyCircleToPolygonAdapter.cs" />
+    <Compile Include="Entities\Subjects\MyLine.cs" />
+    <Compile Include="Entities\Adapters\MyLineToPolygonAdapter.cs" />
+    <Compile Include="Entities\Subjects\MyPolygon.cs" />
+    <Compile Include="Entities\Subjects\MyRectangle.cs" />
+    <Compile Include="Entities\Strategies\PentagonStrategy.cs" />
+    <Compile Include="Entities\Strategies\RectangleStrategy.cs" />
+    <Compile Include="Entities\Strategies\RightArrowStrategy.cs" />
+    <Compile Include="Entities\Strategies\RightTriangleStrategy.cs" />
+    <Compile Include="Entities\Abstracts\Shape.cs" />
+    <Compile Include="Entities\Factories\ShapeFactory.cs" />
+    <Compile Include="Entities\Enums\ShapeType.cs" />
+    <Compile Include="Entities\Strategies\SquareStrategy.cs" />
+    <Compile Include="Entities\Strategies\TriangleStrategy.cs" />
+    <Compile Include="Entities\Strategies\UpArrowStrategy.cs" />
+    <Compile Include="GraphicForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GraphicForm.Designer.cs">
+      <DependentUpon>GraphicForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GraphicForm.resx">
+      <DependentUpon>GraphicForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\a.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eraser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\color-picker.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\magnifier.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\curve.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\circle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rounded-rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\polygon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\triangle %283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\diamond %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\shape.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down-arrow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\line %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\colors %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangular-geometrical-shape-outline.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rectangle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\redo.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
